@@ -1,4 +1,4 @@
-# EOSIO SDK for Swift Softkey Signature Provider
+# EOSIO SDK for Swift Softkey Signature Provider ![EOSIO Alpha](https://img.shields.io/badge/EOSIO-Alpha-blue.svg)
 
 ## Overview
 
