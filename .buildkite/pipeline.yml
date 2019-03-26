@@ -1,4 +1,3 @@
-
 steps:
   - command: "source ~/.bash_profile && bundle install --path ci/bundle"
     label: ":ruby: bundle install"
