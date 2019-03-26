@@ -78,10 +78,10 @@ lane :build do
 
   get_certificates
   get_provisioning_profile
-  build_app(scheme: "EosioSwiftFoundation",
-            workspace: "EosioSwiftFoundation.xcodeproj",
+  build_app(scheme: "EosioSwiftSoftkeySignatureProvider",
+            workspace: "EosioSwiftSoftkeySignatureProvider.xcworkspace",
             include_bitcode: false,
-            sdk: "iOS 12.1")
+            sdk: "iOS 12.0")
 end
 
 lane :tests do
@@ -90,7 +90,7 @@ lane :tests do
 
   get_certificates
   get_provisioning_profile
-  run_tests(scheme: "EosioSwiftFoundationTests",
+  run_tests(scheme: "EosioSwiftSoftkeySignatureProviderTests",
   devices: ["iPhone 5s"],
   code_coverage: true,
   output_directory: "code_coverage_report",
@@ -98,12 +98,11 @@ lane :tests do
   )
   
   xcov(
-  scheme: "EosioSwiftFoundationTests",
+  scheme: "EosioSwiftSoftkeySignatureProviderTests",
   output_directory: "code_coverage_report",
   json_report: true
 )
 end
-
 
 lane :deploytestflight do
   build_summary = get_build_summary
