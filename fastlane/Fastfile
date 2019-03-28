@@ -90,7 +90,7 @@ lane :build do
   build_app(scheme: "EosioSwiftSoftkeySignatureProvider",
             workspace: "EosioSwiftSoftkeySignatureProvider.xcworkspace",
             include_bitcode: false,
-            sdk: "iphoneos12.1")
+            sdk: "iOS 12.1")
 end
 
 lane :tests do
@@ -126,6 +126,7 @@ lane :deploytestflight do
   build_summary = get_build_summary
 
   #We don't deploy this to Testflight
+  end
 
   clear_derived_data
 
