@@ -6,14 +6,14 @@ target 'EosioSwiftSoftkeySignatureProvider' do
   use_frameworks!
 
   # Pods for EosioSwiftSoftkeySignatureProvider
- 
+
   pod 'EosioSwift', :path => '../eosio-swift'
   pod 'EosioSwiftEcc', :path => '../eosio-swift-ecc'
   target 'EosioSwiftSoftkeySignatureProviderTests' do
     inherit! :search_paths
     # Pods for testing
 pod 'EosioSwift', :path => '../eosio-swift'
-#pod 'EosioSwiftEcc', :path => '../eosio-swift-ecc'
+pod 'EosioSwiftEcc', :path => '../eosio-swift-ecc'
   end
 
 end
