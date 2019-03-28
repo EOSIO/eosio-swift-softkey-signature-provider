@@ -126,7 +126,6 @@ lane :deploytestflight do
   build_summary = get_build_summary
 
   #We don't deploy this to Testflight
-  end
 
   clear_derived_data
 
