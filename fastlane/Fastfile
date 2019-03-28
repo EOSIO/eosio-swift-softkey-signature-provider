@@ -89,7 +89,7 @@ lane :build do
   get_provisioning_profile
   build_app(scheme: "EosioSwiftSoftkeySignatureProvider",
             workspace: "EosioSwiftSoftkeySignatureProvider.xcworkspace",
-            include_bitcode: false,
+            include_bitcode: true,
             sdk: "iOS 12.1")
 end
 
