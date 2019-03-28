@@ -90,7 +90,7 @@ lane :build do
   build_app(scheme: "EosioSwiftSoftkeySignatureProvider",
             workspace: "EosioSwiftSoftkeySignatureProvider.xcworkspace",
             include_bitcode: false,
-            sdk: "iOS 12.0")
+            sdk: "iphoneos12.0")
 end
 
 lane :tests do
