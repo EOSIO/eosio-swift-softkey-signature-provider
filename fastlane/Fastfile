@@ -30,7 +30,7 @@ def get_build_summary
     latest_tag = "v0.0.0"
   else
     tag_commit = `git rev-list -n 1 #{latest_tag}`.strip
-    release = get_github_release(url: "EOSIO/ios-browser-app", version: "#{latest_tag}", api_token: ENV["GITHUB_API_TOKEN"])
+    release = get_github_release(url: "EOSIO/eosio-swift-softkey-signature-provider", version: "#{latest_tag}", api_token: ENV["GITHUB_API_TOKEN"])
     unless release.nil? then
       changelog = (release['body'] || "Releases version #{latest_tag}")
       is_latest = current_commit == tag_commit
@@ -67,6 +67,13 @@ lane :build do
   puts 'copying frameworks to working directory'
   `cp -R /Users/cicd/*.framework ../`
 
+  [
+    'EosioSwift',
+    'EosioSwiftEcc'
+  ].each do |pod_name|
+    get_pod(pod_name)
+  end
+
 
   build_summary = get_build_summary
 
@@ -88,17 +95,24 @@ lane :tests do
   puts 'copying frameworks to working directory'
   `cp -R /Users/cicd/*.framework ../`
 
+  [
+    'EosioSwift',
+    'EosioSwiftEcc'
+  ].each do |pod_name|
+    get_pod(pod_name)
+  end
+
   get_certificates
   get_provisioning_profile
-  run_tests(scheme: "EosioSwiftSoftkeySignatureProviderTests",
+  run_tests(scheme: "EosioSwiftSoftkeySignatureProvider",
   devices: ["iPhone 5s"],
   code_coverage: true,
   output_directory: "code_coverage_report",
   xcpretty_args:"--report junit"
   )
-  
+
   xcov(
-  scheme: "EosioSwiftSoftkeySignatureProviderTests",
+  scheme: "EosioSwiftSoftkeySignatureProvider",
   output_directory: "code_coverage_report",
   json_report: true
 )
