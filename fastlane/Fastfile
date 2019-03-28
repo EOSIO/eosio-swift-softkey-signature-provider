@@ -68,8 +68,8 @@ lane :build do
   `cp -R /Users/cicd/*.framework ../`
 
   [
-    'EosioSwift',
-    'EosioSwiftEcc'
+    'eosio-swift',
+    'eosio-swift-ecc'
   ].each do |pod_name|
     get_pod(pod_name)
   end
@@ -96,8 +96,8 @@ lane :tests do
   `cp -R /Users/cicd/*.framework ../`
 
   [
-    'EosioSwift',
-    'EosioSwiftEcc'
+    'eosio-swift',
+    'eosio-swift-ecc'
   ].each do |pod_name|
     get_pod(pod_name)
   end
