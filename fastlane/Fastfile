@@ -74,6 +74,8 @@ lane :build do
     get_pod(pod_name)
   end
 
+  cocoapods
+
 
   build_summary = get_build_summary
 
@@ -101,6 +103,8 @@ lane :tests do
   ].each do |pod_name|
     get_pod(pod_name)
   end
+
+  cocoapods
 
   get_certificates
   get_provisioning_profile
