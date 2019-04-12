@@ -1,19 +1,40 @@
-# Uncomment the next line to define a global platform for your project
-platform :ios, '12.1'
+using_local_pods = false
 
-target 'EosioSwiftSoftkeySignatureProvider' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+unless using_local_pods
+  source 'https://github.com/EOSIO/eosio-swift-pod-specs.git'
+  source 'https://github.com/CocoaPods/Specs.git'
+end
 
-  # Pods for EosioSwiftSoftkeySignatureProvider
+platform :ios, '11.0'
 
-  pod 'EosioSwift', :path => '../eosio-swift'
-  pod 'EosioSwiftEcc', :path => '../eosio-swift-ecc'
-  target 'EosioSwiftSoftkeySignatureProviderTests' do
-    inherit! :search_paths
-    # Pods for testing
-pod 'EosioSwift', :path => '../eosio-swift'
-pod 'EosioSwiftEcc', :path => '../eosio-swift-ecc'
+if using_local_pods
+  # Pull pods from sibling directories if using local pods
+  target 'EosioSwiftSoftkeySignatureProvider' do
+    use_frameworks!
+
+    pod 'EosioSwift', :path => '../eosio-swift'
+    pod 'EosioSwiftEcc', :path => '../eosio-swift-ecc'
+    pod 'SwiftLint'
+
+    target 'EosioSwiftSoftkeySignatureProviderTests' do
+      inherit! :search_paths
+      pod 'EosioSwift', :path => '../eosio-swift'
+      pod 'EosioSwiftEcc', :path => '../eosio-swift-ecc'
+    end
   end
+else
+  # Pull pods from sources above if not using local pods
+  target 'EosioSwiftSoftkeySignatureProvider' do
+    use_frameworks!
 
+    pod 'EosioSwift', '~> 0.0.2'
+    pod 'EosioSwiftEcc', '~> 0.0.2'
+    pod 'SwiftLint'
+
+    target 'EosioSwiftSoftkeySignatureProviderTests' do
+      inherit! :search_paths
+      pod 'EosioSwift', '~> 0.0.2'
+      pod 'EosioSwiftEcc', '~> 0.0.2'
+    end
+  end
 end

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EosioSwiftSoftkeySignatureProvider'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'Experimental Software Key Signature Provider for Eosio SDK for Swift.'
   s.homepage         = 'https://github.com/EOSIO/eosio-swift-softkey-signature-provider'
   s.license          = { :type => 'MIT', :text => <<-LICENSE
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/EOSIO/eosio-swift-softkey-signature-provider.git', :tag => "v" + s.version.to_s }
 
   s.swift_version         = '4.2'
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files =  'EosioSwiftSoftkeySignatureProvider/**/*.{c,h,m,cpp,hpp}',
                     'EosioSwiftSoftkeySignatureProvider/**/*.swift'
@@ -37,6 +37,6 @@ Pod::Spec.new do |s|
                             'SWIFT_COMPILATION_MODE' => 'wholemodule',
                             'ENABLE_BITCODE' => 'YES' }
 
-  s.ios.dependency 'EosioSwiftEcc', '~> 0.0.1'
-  s.ios.dependency 'EosioSwift', '~> 0.0.1'
+  s.ios.dependency 'EosioSwiftEcc', '~> 0.0.2'
+  s.ios.dependency 'EosioSwift', '~> 0.0.2'
 end
