@@ -26,7 +26,7 @@ The Signature Provider abstraction is arguably the most useful of all of the [EO
 * finding out what keys are available for signing (`getAvailableKeys`), and
 * requesting and obtaining transaction signatures with a subset of the available keys (`signTransaction`).
 
-By simply switching out the signature provider on a transaction, signature requests can be routed any number of ways. Need a signature from keys in the platform's Keychain or Secure Enclave? [Configure the `EosioTransaction`](https://github.com/EOSIO/eosio-swift#basic-usage) with a conforming signature provider that exposes that functionality. Need signatures from a wallet on the user's device? A signature provider can do that too!
+By simply switching out the signature provider on a transaction, signature requests can be routed any number of ways. Need a signature from keys in the platform's Keychain or Secure Enclave? Configure the `EosioTransaction` with a signature provider that exposes that functionality, such as the [EOSIO SDK for Swift: Vault Signature Provider](https://github.com/EOSIO/eosio-swift-vault-signature-provider). Need signatures from a wallet on the user's device? A signature provider can do that too!
 
 All signature providers must conform to the [EosioSignatureProviderProtocol](https://github.com/EOSIO/eosio-swift/blob/master/EosioSwift/EosioSignatureProviderProtocol/EosioSignatureProviderProtocol.swift) Protocol.
 
